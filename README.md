@@ -1,6 +1,12 @@
 ### Date created
 29072024
 
+### Created by
+Flavia Souza
+
+### Version of python
+Python 3.6.3
+
 ### Project Title
 Explore US Bikeshare Data
 
