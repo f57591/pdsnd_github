@@ -46,17 +46,20 @@ def load_data(city, month, day):
     print('Starting data loading process.')
     print('======================================================================')
 
-    if city == 'chicago':
-        df = pd.read_csv('chicago.csv')
-    elif city == 'new york city':
-        df = pd.read_csv('new_york_city.csv')
-    elif city == 'washington':
-        df = pd.read_csv('washington.csv')
+    
+    city_files = {
+        'chicago': 'chicago.csv',
+        'new york city': 'new_york_city.csv',
+        'washington': 'washington.csv'
+    }
+
+    
+    if city in city_files:
+        df = pd.read_csv(city_files[city])
     else:
         return "Erro: Arquivo da cidade não encontrado."
 
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-
     df['Month'] = df['Start Time'].dt.month_name().str.lower()
     df['Day of Week'] = df['Start Time'].dt.day_name().str.lower()
 
